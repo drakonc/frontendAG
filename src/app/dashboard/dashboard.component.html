@@ -1,0 +1,32 @@
+<div id="wrapper">
+    <!-- Sidebar -->
+    <!-- Menu Lateral -->
+    <app-sidebar class="bg-dark"></app-sidebar>
+    <!-- End of Sidebar -->
+
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <app-topbar></app-topbar>
+            <!-- End of Topbar -->
+
+            <!-- Container Principarl -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <router-outlet></router-outlet>
+
+            </div>
+            <!-- Fin Container Principarl -->
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <app-footer></app-footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+</div>
