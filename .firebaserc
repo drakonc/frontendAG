@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "appinfra-9e63a": {
+      "hosting": {
+        "frontend": [
+          "appinfra-9e63a"
+        ]
+      }
+    }
+  }
+}

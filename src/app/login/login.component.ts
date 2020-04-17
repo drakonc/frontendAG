@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   model = { username: '', password: '' };
 
-  constructor(private router: Router) {
+  constructor(private readonly router: Router, private readonly cookieService: CookieService) {
     if (localStorage.getItem('secion')) { this.router.navigate(['']); }
   }
 
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
   submit() {
     if (this.model.username === 'jcastro' && this.model.password === 'Passw0rd!!') {
       localStorage.setItem('secion', 'Activo');
+      this.cookieService.set('LoginNombre', this.model.username, 1);
       this.router.navigate(['/']);
     } else {
       console.log('Contraseña y usuario errado');

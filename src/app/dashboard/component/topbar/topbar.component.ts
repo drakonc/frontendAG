@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,13 +9,14 @@ import { Router } from '@angular/router';
 })
 export class TopbarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private readonly router: Router, private readonly cookieService: CookieService) { }
 
   ngOnInit(): void {
   }
 
   Salir() {
     localStorage.removeItem('secion');
+    this.cookieService.deleteAll();
     this.router.navigate(['/login']);
   }
 
