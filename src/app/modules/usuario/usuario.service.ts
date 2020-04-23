@@ -37,4 +37,8 @@ export class UsuarioService {
     return this.afs.doc<UsuarioI>(`usuarios/${id}`).valueChanges();
   }
 
+  public createUser(usuario: UsuarioI) {
+
+  }
+
 }
