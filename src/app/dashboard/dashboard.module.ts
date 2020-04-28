@@ -5,12 +5,11 @@ import { DashboardComponent } from './dashboard.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { TopbarComponent } from './component/topbar/topbar.component';
-import { UsuarioModule } from '../modules/usuario/usuario.module';
 import { HomeComponent } from './component/home/home.component';
 
 @NgModule({
   declarations: [DashboardComponent, FooterComponent, SidebarComponent, TopbarComponent, HomeComponent],
   exports: [DashboardComponent],
-  imports: [AppRoutingModule, CommonModule, UsuarioModule]
+  imports: [AppRoutingModule, CommonModule]
 })
 export class DashboardModule { }
