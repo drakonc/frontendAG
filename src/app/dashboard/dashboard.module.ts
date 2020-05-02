@@ -6,10 +6,11 @@ import { FooterComponent } from './component/footer/footer.component';
 import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { TopbarComponent } from './component/topbar/topbar.component';
 import { HomeComponent } from './component/home/home.component';
+import { UsuarioModule } from '../modules/usuario/usuario.module';
 
 @NgModule({
   declarations: [DashboardComponent, FooterComponent, SidebarComponent, TopbarComponent, HomeComponent],
   exports: [DashboardComponent],
-  imports: [AppRoutingModule, CommonModule]
+  imports: [AppRoutingModule, CommonModule, UsuarioModule]
 })
 export class DashboardModule { }

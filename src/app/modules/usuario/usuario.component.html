@@ -1,0 +1,56 @@
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Modulo de Usuario</h1>
+    <a [routerLink]="['/usuario-add']" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm text-white"><i class="fas fa-user-plus mr-2"></i>Crear Usuario</a>
+</div>
+<div class="row">
+    <div class="col-md-12" *ngIf="readUsers; else loading">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" id="dtUsuario" ellspacing="0">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Nombre</th>
+                            <th class="text-center">Apellido</th>
+                            <th class="text-center">Correo</th>
+                            <th class="text-center">Usuario</th>
+                            <th class="text-center">Role</th>
+                            <th width="20%"></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th class="text-center">Nombre</th>
+                            <th class="text-center">Apellido</th>
+                            <th class="text-center">Correo</th>
+                            <th class="text-center">Usuario</th>
+                            <th class="text-center">Role</th>
+                            <th width="20%"></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr *ngFor='let user of readUsers'>
+                            <th class="font-weight-normal">{{user.nombre}}</th>
+                            <th class="font-weight-normal">{{user.apellido}}</th>
+                            <th class="font-weight-normal">{{user.correo}}</th>
+                            <th  class="font-weight-normal">{{user.username}}</th>
+                            <th  class="font-weight-normal">{{user.role.name}}</th>
+                            <th width="20%" class="text-center">
+                                <a  class="btn btn-success" [routerLink]="['/usuario-edit',user.id]" title='Editar Usuario'><i class="fas fa-user-edit"></i></a>
+                                <a  class="btn btn-danger ml-3" [routerLink]="['/usuario-delete',user.id]" title="Eliminar Usuario"><i class="fas fa-trash-alt"></i></a>
+                            </th>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <ng-template #loading>
+        <div class="col-md-8 offset-md-2">
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+        </div>
+    </ng-template>
+</div>
