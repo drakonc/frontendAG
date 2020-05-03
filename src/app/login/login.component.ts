@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import { AuthService } from '../modules/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   model = { username: '', password: '' };
 
-  constructor(private readonly router: Router, private readonly cookieService: CookieService) {
+  constructor(private readonly router: Router, private readonly cookieService: CookieService, authService: AuthService) {
   }
 
   ngOnInit(): void {

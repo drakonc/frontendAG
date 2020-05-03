@@ -24,13 +24,14 @@ export class UsuarioDelComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.avRoute.snapshot.params.id;
     swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: 'Estas Seguro?',
+      text: "Si Elimina no prodra recuperar el Usuario",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Si, Estoy Seguro!',
+      cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.value) {
         this.usuarioSerice.deleteUsuario(this.id).subscribe(
