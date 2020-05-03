@@ -1,5 +1,60 @@
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Edicion de Usuario</h1>
-    <a [routerLink]="['/usuario']" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-user-times mr-2"></i>Cancelar Edicion</a>
+    <a [routerLink]="['/usuario']" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+            class="fas fa-user-times mr-2"></i>Cancelar Edicion</a>
+</div>
+<div class="row pt-3">
+    <div class="col-md-8 offset-md-2">
+        <div class="card border border-primary">
+            <div class="card-header text-center bg-primary text-white">
+                <h1 class="h3 mb-0">Formulario de Actualización de Usuario</h1>
+            </div>
+            <div class="card-body">
+                <form class="user" [formGroup]="usuarioForm" (ngSubmit)="onSaveForm()">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="idNombre" class="font-weight-bold">Nombre:</label>
+                            <input type="text" class="form-control" id="idNombre" formControlName="nombre"
+                                placeholder="Nombres del Usuario" [ngModel]="updUsuario.nombre"
+                                value="{updUsuario.nombre}" autofocus>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="idApellido" class="font-weight-bold">Apellido:</label>
+                            <input type="text" class="form-control" id="idApellido" formControlName="apellido"
+                                placeholder="Apellidos del Usuario" [ngModel]="updUsuario.apellido">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="idCorreo" class="font-weight-bold">Correo Electronico:</label>
+                        <input type="email" class="form-control" id="idCorreo" placeholder="ejemplo@correo.com"
+                            [ngModel]="updUsuario.correo" formControlName="correo" disabled>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="idUsername" class="font-weight-bold">Username:</label>
+                            <input type="text" class="form-control" id="idUsername" placeholder="Nombre Usuario"
+                                [ngModel]="updUsuario.username" formControlName="username" disabled>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputZidPasswordp" class="font-weight-bold">Contraseña:</label>
+                            <input type="password" class="form-control" id="idPassword" [ngModel]="updUsuario.password"
+                                placeholder="Contraseña del Usuario" formControlName="password">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="idRol" class="font-weight-bold">Rol del Usuario:</label>
+                            <select id="idRol" class="form-control custom-select" formControlName="role"
+                                [ngModel]="rolId" value="updUsuario.role">
+                                <option *ngFor="let rol of readRoles," [ngValue]="rol.id">
+                                    {{ rol.name }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" [disabled]="!usuarioForm.valid">Guardar
+                        usuario</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

@@ -8,11 +8,12 @@ import { AppRoutingModule } from '../../app-routing.module';
 import { UsuarioAddComponent } from './component/usuario-add/usuario-add.component';
 import { UsuarioEditComponent } from './component/usuario-edit/usuario-edit.component';
 import { UsuarioService } from './usuario.service';
+import { UsuarioDelComponent } from './component/usuario-del/usuario-del.component';
 
 
 
 @NgModule({
-  declarations: [UsuarioComponent, UsuarioAddComponent, UsuarioEditComponent],
+  declarations: [UsuarioComponent, UsuarioAddComponent, UsuarioEditComponent, UsuarioDelComponent],
   imports: [CommonModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule, FormsModule],
   providers: [UsuarioService]
 })

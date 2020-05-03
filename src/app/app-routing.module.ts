@@ -6,6 +6,7 @@ import { HomeComponent } from './dashboard/component/home/home.component';
 import { UsuarioComponent } from './modules/usuario/usuario.component';
 import { UsuarioAddComponent } from './modules/usuario/component/usuario-add/usuario-add.component';
 import { UsuarioEditComponent } from './modules/usuario/component/usuario-edit/usuario-edit.component';
+import { UsuarioDelComponent } from './modules/usuario/component/usuario-del/usuario-del.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
       { path: '', component: HomeComponent },
       { path: 'usuario', component: UsuarioComponent },
       { path: 'usuario-add', component: UsuarioAddComponent },
-      { path: 'usuario-edit/:id', component: UsuarioEditComponent }
+      { path: 'usuario-edit/:id', component: UsuarioEditComponent },
+      { path: 'usuario-del/:id', component: UsuarioDelComponent }
     ]
   },
   { path: 'login', component: LoginComponent }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { CreateUsuarioI } from './models';
+import { UpdateUsuarioI } from './models/update-usuario.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -27,4 +28,13 @@ export class UsuarioService {
   createUsuario(newUsuario: CreateUsuarioI) {
     return this.http.post(this.API + 'usuario/crearUsuario', newUsuario);
   }
+
+  updateUsuario(usuarioId: number, usuario: UpdateUsuarioI) {
+    return this.http.put(this.API + 'usuario/updateUsuario/' + usuarioId, usuario);
+  }
+
+  deleteUsuario(usuarioId: number) {
+    return this.http.delete(this.API + 'usuario/deleteUsuario/' + usuarioId);
+  }
+
 }

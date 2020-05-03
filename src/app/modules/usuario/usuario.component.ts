@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { UsuarioService } from './usuario.service';
 import { ReadeUsuarioI } from './models/index';
+import { ToastrService } from 'ngx-toastr';
 import { ErrorI } from '../../shared/models/error/error.interface';
 
 import * as $ from 'jquery';
@@ -21,7 +22,7 @@ export class UsuarioComponent implements OnInit {
   public dataTable: any;
 
 
-  constructor(private readonly usuarioSerice: UsuarioService, private chRef: ChangeDetectorRef) { }
+  constructor(private readonly usuarioSerice: UsuarioService, private chRef: ChangeDetectorRef, private readonly toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getAllUsuarios();
