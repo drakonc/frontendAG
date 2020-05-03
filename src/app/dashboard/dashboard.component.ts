@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private readonly router: Router, private readonly cookieService: CookieService) { }
 
   ngOnInit(): void {
+    if (localStorage.length == 0 && this.cookieService.check('LoginNombre') == false) {
+      this.router.navigate(['/login']);
+    }
   }
 
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,12 +11,11 @@ export class LoginComponent implements OnInit {
   model = { username: '', password: '' };
 
   constructor(private readonly router: Router, private readonly cookieService: CookieService) {
-    if (localStorage.getItem('secion')) { this.router.navigate(['']); }
   }
 
   ngOnInit(): void {
-    if (localStorage.getItem('secion')) {
-      this.router.navigate(['']);
+    if (localStorage.length > 0 && this.cookieService.check('LoginNombre') == true) {
+      this.router.navigate(['/']);
     }
   }
 

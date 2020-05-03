@@ -15,9 +15,9 @@ export class TopbarComponent implements OnInit {
   }
 
   Salir() {
-    localStorage.removeItem('secion');
-    this.cookieService.deleteAll();
-    this.router.navigate(['/login']);
+    localStorage.clear();
+    this.cookieService.delete('LoginNombre');
+    this.router.navigate(['login']);
   }
 
 }

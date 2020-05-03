@@ -4,8 +4,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
   title = 'frontend';
@@ -13,8 +12,8 @@ export class AppComponent implements OnInit {
   constructor(private readonly router: Router, private readonly cookieService: CookieService) { }
 
   ngOnInit() {
-    if (!localStorage.getItem('secion') || this.cookieService.getAll() == null) {
-      this.router.navigate(['login']);
+    if (localStorage.length == 0 && this.cookieService.check('LoginNombre') == false) {
+      this.router.navigate(['/login']);
     }
   }
 
