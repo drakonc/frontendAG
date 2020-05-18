@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CookieService } from 'ngx-cookie-service';
 import { AppRoutingModule } from '../app-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { FooterComponent } from './component/footer/footer.component';
@@ -14,6 +15,6 @@ import { AuthService } from '../modules/auth/auth.service';
   declarations: [DashboardComponent, FooterComponent, SidebarComponent, TopbarComponent, HomeComponent],
   exports: [DashboardComponent],
   imports: [AppRoutingModule, CommonModule, UsuarioModule, AuthModule],
-  providers: [AuthService]
+  providers: [AuthService, CookieService]
 })
 export class DashboardModule { }

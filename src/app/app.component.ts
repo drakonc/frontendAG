@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   constructor(private readonly router: Router, private readonly cookieService: CookieService) { }
 
   ngOnInit() {
-    if (localStorage.length == 0 && this.cookieService.check('LoginNombre') == false) {
+    if (localStorage.length === 0 && this.cookieService.check('Secret') === false && this.cookieService.check('UserNobre') === false && this.cookieService.check('UserApellido') === false && this.cookieService.check('RoleName') === false) {
       this.router.navigate(['/login']);
     }
   }

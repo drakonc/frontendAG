@@ -4,7 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { UsuarioService } from '../../usuario.service';
 import { ErrorI } from '../../../../shared/models/error/error.interface';
 
-import swal from 'sweetalert2'
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-usuario-del',
@@ -25,7 +25,7 @@ export class UsuarioDelComponent implements OnInit {
     this.id = this.avRoute.snapshot.params.id;
     swal.fire({
       title: 'Estas Seguro?',
-      text: "Si Elimina no prodra recuperar el Usuario",
+      text: 'Si Elimina no prodra recuperar el Usuario',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -47,7 +47,7 @@ export class UsuarioDelComponent implements OnInit {
       } else {
         this.route.navigate(['/usuario']);
       }
-    })
+    });
   }
 
 }

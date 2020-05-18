@@ -9,14 +9,20 @@ import { Router } from '@angular/router';
 })
 export class TopbarComponent implements OnInit {
 
+  public nombre: string;
+
   constructor(private readonly router: Router, private readonly cookieService: CookieService) { }
 
   ngOnInit(): void {
+    this.nombre = `${this.cookieService.get('UserNobre')} ${this.cookieService.get('UserApellido')}`;
   }
 
   Salir() {
     localStorage.clear();
-    this.cookieService.delete('LoginNombre');
+    this.cookieService.delete('Secret');
+    this.cookieService.delete('UserNobre');
+    this.cookieService.delete('UserApellido');
+    this.cookieService.delete('RoleName');
     this.router.navigate(['login']);
   }
 

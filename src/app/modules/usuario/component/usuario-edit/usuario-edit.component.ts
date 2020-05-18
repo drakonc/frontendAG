@@ -64,7 +64,7 @@ export class UsuarioEditComponent implements OnInit {
       (data) => {
         this.usuario = data;
         this.updUsuario = this.usuario;
-        this.idRole = this.updUsuario.role
+        this.idRole = this.updUsuario.role;
         this.rolId = this.idRole.id;
       },
       (error) => {
@@ -102,6 +102,7 @@ export class UsuarioEditComponent implements OnInit {
         },
         (error) => {
           this.error = error.error;
+          console.log(error);
           this.toastr.error(`${this.error.message}`, 'Error');
         }
       );
