@@ -21,7 +21,7 @@ export class AuthGuard implements CanActivate {
     if (localStorage.length > 0 && this.cookieService.check('Secret') === true && this.cookieService.check('UserNobre') === true && this.cookieService.check('UserApellido') === true && this.cookieService.check('RoleName') === true) {
       if (route.data.roles && route.data.roles.indexOf(this.loggerin.user.role.id) === -1) {
         // role not authorised so redirect to home page
-        this.router.navigate(['/']);
+        this.router.navigate(['noAuth']);
         return false;
       }
       return true;

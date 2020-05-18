@@ -9,11 +9,13 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { NoAuthComponent } from './page/no-auth/no-auth.component';
+import { NoFountComponent } from './page/no-fount/no-fount.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NoAuthComponent, NoFountComponent],
   imports: [
     BrowserModule, AppRoutingModule, FormsModule, LoginModule, DashboardModule, ReactiveFormsModule,
     BrowserAnimationsModule, ToastrModule.forRoot()

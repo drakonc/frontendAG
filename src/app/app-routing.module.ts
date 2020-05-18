@@ -9,6 +9,8 @@ import { UsuarioEditComponent } from './modules/usuario/component/usuario-edit/u
 import { UsuarioDelComponent } from './modules/usuario/component/usuario-del/usuario-del.component';
 import { AuthGuard } from './auth/auth.guard';
 import { RoleType } from './shared/enums/role.type.enum';
+import { NoAuthComponent } from './page/no-auth/no-auth.component';
+import { NoFountComponent } from './page/no-fount/no-fount.component';
 
 
 const routes: Routes = [
@@ -23,7 +25,9 @@ const routes: Routes = [
       { path: 'usuario-del/:id', component: UsuarioDelComponent, canActivate: [AuthGuard], data: { roles: [RoleType.Administrador] } }
     ]
   },
-  { path: 'login', component: LoginComponent }
+  { path: 'noAuth', component: NoAuthComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '**', component: NoFountComponent }
 ];
 
 @NgModule({
