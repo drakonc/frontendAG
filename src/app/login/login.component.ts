@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from '../modules/auth/auth.service';
 import { LoginService } from './login.service';
 import { Loggerin } from '../shared/models/loggerin/logger-in';
 import { LoginI } from './model/login.interface';
@@ -21,7 +20,7 @@ export class LoginComponent implements OnInit {
   private error: ErrorI;
 
   constructor(
-    private readonly router: Router, private readonly cookieService: CookieService, authService: AuthService, private readonly loginService: LoginService,
+    private readonly router: Router, private readonly cookieService: CookieService, private readonly loginService: LoginService,
     private readonly toastr: ToastrService
   ) {
   }

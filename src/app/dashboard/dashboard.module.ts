@@ -8,13 +8,11 @@ import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { TopbarComponent } from './component/topbar/topbar.component';
 import { HomeComponent } from './component/home/home.component';
 import { UsuarioModule } from '../modules/usuario/usuario.module';
-import { AuthModule } from '../modules/auth/auth.module';
-import { AuthService } from '../modules/auth/auth.service';
 
 @NgModule({
   declarations: [DashboardComponent, FooterComponent, SidebarComponent, TopbarComponent, HomeComponent],
   exports: [DashboardComponent],
-  imports: [AppRoutingModule, CommonModule, UsuarioModule, AuthModule],
-  providers: [AuthService, CookieService]
+  imports: [AppRoutingModule, CommonModule, UsuarioModule],
+  providers: [CookieService]
 })
 export class DashboardModule { }

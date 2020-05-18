@@ -57,7 +57,7 @@ export class UsuarioAddComponent implements OnInit {
       },
       (error) => {
         this.error = error.error;
-        console.error('Entro En EL Error ', this.error);
+        this.toastr.error(`${this.error.message}`, 'Error');
       }
     );
   }

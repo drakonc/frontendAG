@@ -7,6 +7,8 @@ import { UsuarioComponent } from './modules/usuario/usuario.component';
 import { UsuarioAddComponent } from './modules/usuario/component/usuario-add/usuario-add.component';
 import { UsuarioEditComponent } from './modules/usuario/component/usuario-edit/usuario-edit.component';
 import { UsuarioDelComponent } from './modules/usuario/component/usuario-del/usuario-del.component';
+import { AuthGuard } from './auth/auth.guard';
+import { RoleType } from './shared/enums/role.type.enum';
 
 
 const routes: Routes = [
@@ -15,10 +17,10 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       { path: '', component: HomeComponent },
-      { path: 'usuario', component: UsuarioComponent },
-      { path: 'usuario-add', component: UsuarioAddComponent },
-      { path: 'usuario-edit/:id', component: UsuarioEditComponent },
-      { path: 'usuario-del/:id', component: UsuarioDelComponent }
+      { path: 'usuario', component: UsuarioComponent, canActivate: [AuthGuard], data: { roles: [RoleType.Administrador] } },
+      { path: 'usuario-add', component: UsuarioAddComponent, canActivate: [AuthGuard], data: { roles: [RoleType.Administrador] } },
+      { path: 'usuario-edit/:id', component: UsuarioEditComponent, canActivate: [AuthGuard], data: { roles: [RoleType.Administrador] } },
+      { path: 'usuario-del/:id', component: UsuarioDelComponent, canActivate: [AuthGuard], data: { roles: [RoleType.Administrador] } }
     ]
   },
   { path: 'login', component: LoginComponent }

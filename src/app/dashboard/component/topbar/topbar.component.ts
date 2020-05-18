@@ -18,11 +18,8 @@ export class TopbarComponent implements OnInit {
   }
 
   Salir() {
+    this.cookieService.deleteAll();
     localStorage.clear();
-    this.cookieService.delete('Secret');
-    this.cookieService.delete('UserNobre');
-    this.cookieService.delete('UserApellido');
-    this.cookieService.delete('RoleName');
     this.router.navigate(['login']);
   }
 
