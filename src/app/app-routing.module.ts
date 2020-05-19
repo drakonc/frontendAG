@@ -11,6 +11,8 @@ import { AuthGuard } from './auth/auth.guard';
 import { RoleType } from './shared/enums/role.type.enum';
 import { NoAuthComponent } from './page/no-auth/no-auth.component';
 import { NoFountComponent } from './page/no-fount/no-fount.component';
+import { VpnComponent } from './modules/vpn/vpn.component';
+import { PasswdComponent } from './modules/passwd/passwd.component';
 
 
 const routes: Routes = [
@@ -22,7 +24,9 @@ const routes: Routes = [
       { path: 'usuario', component: UsuarioComponent, canActivate: [AuthGuard], data: { roles: [RoleType.Administrador] } },
       { path: 'usuario-add', component: UsuarioAddComponent, canActivate: [AuthGuard], data: { roles: [RoleType.Administrador] } },
       { path: 'usuario-edit/:id', component: UsuarioEditComponent, canActivate: [AuthGuard], data: { roles: [RoleType.Administrador] } },
-      { path: 'usuario-del/:id', component: UsuarioDelComponent, canActivate: [AuthGuard], data: { roles: [RoleType.Administrador] } }
+      { path: 'usuario-del/:id', component: UsuarioDelComponent, canActivate: [AuthGuard], data: { roles: [RoleType.Administrador] } },
+      { path: 'vpn', component: VpnComponent, canActivate: [AuthGuard], data: { roles: [RoleType.Administrador] } },
+      { path: 'passwd', component: PasswdComponent, canActivate: [AuthGuard], data: { roles: [RoleType.Administrador] } }
     ]
   },
   { path: 'noAuth', component: NoAuthComponent },
