@@ -13,6 +13,9 @@ import { NoAuthComponent } from './page/no-auth/no-auth.component';
 import { NoFountComponent } from './page/no-fount/no-fount.component';
 import { VpnComponent } from './modules/vpn/vpn.component';
 import { PasswdComponent } from './modules/passwd/passwd.component';
+import { VpnAddComponent } from './modules/vpn/component/vpn-add/vpn-add.component';
+import { VpnEditComponent } from './modules/vpn/component/vpn-edit/vpn-edit.component';
+import { VpnDelComponent } from './modules/vpn/component/vpn-del/vpn-del.component';
 
 
 const routes: Routes = [
@@ -25,7 +28,10 @@ const routes: Routes = [
       { path: 'usuario-add', component: UsuarioAddComponent, canActivate: [AuthGuard], data: { roles: [RoleType.Administrador] } },
       { path: 'usuario-edit/:id', component: UsuarioEditComponent, canActivate: [AuthGuard], data: { roles: [RoleType.Administrador] } },
       { path: 'usuario-del/:id', component: UsuarioDelComponent, canActivate: [AuthGuard], data: { roles: [RoleType.Administrador] } },
-      { path: 'vpn', component: VpnComponent, canActivate: [AuthGuard], data: { roles: [RoleType.Administrador] } },
+      { path: 'vpn', component: VpnComponent, canActivate: [AuthGuard], data: { roles: [RoleType.Administrador, RoleType.Tecnico] } },
+      { path: 'vpn-add', component: VpnAddComponent, canActivate: [AuthGuard], data: { roles: [RoleType.Administrador, RoleType.Tecnico] } },
+      { path: 'vpn-edit/:id', component: VpnEditComponent, canActivate: [AuthGuard], data: { roles: [RoleType.Administrador, RoleType.Tecnico] } },
+      { path: 'vpn-del/:id', component: VpnDelComponent, canActivate: [AuthGuard], data: { roles: [RoleType.Administrador, RoleType.Tecnico] } },
       { path: 'passwd', component: PasswdComponent, canActivate: [AuthGuard], data: { roles: [RoleType.Administrador] } }
     ]
   },

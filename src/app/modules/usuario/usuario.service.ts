@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { CreateUsuarioI } from './models';
-import { UpdateUsuarioI } from './models/update-usuario.interface';
+import { CreateUsuarioI, ReadeUsuarioI, UpdateUsuarioI } from './models';
 import { Loggerin } from '../../shared/models/loggerin/logger-in';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,24 +16,24 @@ export class UsuarioService {
 
   constructor(private readonly http: HttpClient) { }
 
-  getAllUsuarios() {
+  getAllUsuarios(): Observable<ReadeUsuarioI[]> {
     this.loggerin = JSON.parse(localStorage.getItem('usuario'));
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.loggerin.token}`
     });
     const HttpOptions = { headers };
-    return this.http.get(this.API + 'usuario', HttpOptions);
+    return this.http.get<ReadeUsuarioI[]>(this.API + 'usuario', HttpOptions);
   }
 
-  getOneUsuario(userId: number) {
+  getOneUsuario(userId: number): Observable<ReadeUsuarioI> {
     this.loggerin = JSON.parse(localStorage.getItem('usuario'));
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.loggerin.token}`
     });
     const HttpOptions = { headers };
-    return this.http.get(this.API + 'usuario/' + userId, HttpOptions);
+    return this.http.get<ReadeUsuarioI>(this.API + 'usuario/' + userId, HttpOptions);
   }
 
   getAllRol() {

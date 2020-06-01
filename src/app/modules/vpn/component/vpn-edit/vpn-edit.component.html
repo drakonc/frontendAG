@@ -1,0 +1,32 @@
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">Edición de VPN</h1>
+  <a [routerLink]="['/vpn']" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm text-white"><i class="fas fa-vote-yea"></i>  Cancelar Edición</a>
+</div>
+<div class="row pt-3">
+  <div class="col-md-8 offset-md-2">
+      <div class="card border border-primary">
+          <div class="card-header text-center bg-primary text-white">
+              <h1 class="h3 mb-0">Formulario de VPN</h1>
+          </div>
+          <div class="card-body">
+              <form class="user" [formGroup]="vpnForm" (ngSubmit)="onSaveForm()">
+                  <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="idNombre" class="font-weight-bold">Nombre:</label>
+                        <input type="text" class="form-control" id="idNombre" formControlName="nombre" placeholder="Nombres Vpn" disabled [ngModel]="vpn.nombre" >
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="idPassword" class="font-weight-bold">Contraseña:</label>
+                        <input type="text" class="form-control" id="idPassword" formControlName="password" placeholder="Credenciales de la Vpn" [ngModel]="vpn.password">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="idGrupos" class="font-weight-bold">Grupos VPN</label>
+                      <textarea class="form-control" id="idGrupos" rows="3" placeholder="Grupos de Vpn" formControlName="grupos" [ngModel]="vpn.grupos"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" [disabled]="!vpnForm.valid">Guardar VPN</button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>

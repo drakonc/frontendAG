@@ -18,7 +18,6 @@ import { CookieService } from 'ngx-cookie-service';
 export class UsuarioComponent implements OnInit {
 
   public error: ErrorI;
-  private usersData: any = [];
   public readUsers: ReadeUsuarioI[] = [];
   public table: any;
   public dataTable: any;
@@ -39,8 +38,7 @@ export class UsuarioComponent implements OnInit {
   getAllUsuarios() {
     this.usuarioSerice.getAllUsuarios().subscribe(
       (data) => {
-        this.usersData = data;
-        this.readUsers = this.usersData;
+        this.readUsers = data;
         this.chRef.detectChanges();
         this.table = $('#dtUsuario');
         this.dataTable = this.table.DataTable({
